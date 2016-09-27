@@ -1,5 +1,5 @@
 {
-  "name": "node-linkedin",
+  "name": "node-linkedin-distributed",
   "version": "0.5.4",
   "description": "LinkedIn 2.0 compatible wrapper in node.js",
   "main": "lib/main",
