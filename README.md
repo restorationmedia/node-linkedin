@@ -4,7 +4,7 @@ node-linkedin-distributed
 
 Another Linkedin wrapper in Node.js
 
-**FORKED FROM** [![NPM](https://nodei.co/npm/node-linkedin.png)](https://nodei.co/npm/node-linkedin/)
+**FORKED FROM** [node-linkedin](https://nodei.co/npm/node-linkedin/)
 
 **!!THIS FORK IS IDENTICAL EXCEPT FOR A CHANGE TO BYPASS THE CSRF CHECK FOR DISTRIBUTED SYSTEMS. IT IS NOT CONSIDERED FULLY SECURE IF YOU ARE USING THIS LIBRARY TO AUTHORIZE A USER TO ACCESS PRIVATE INFO AS A 3RD PARTY COULD SPOOF A CALLBACK!!**
 
