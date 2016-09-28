@@ -1,10 +1,12 @@
-node-linkedin
+node-linkedin-distributed
 ==============
 [![Dependency Status](https://david-dm.org/ArkeologeN/node-linkedin/status.svg?style=flat)](https://david-dm.org/ArkeologeN/node-linkedin)[![Known Vulnerabilities](https://snyk.io/test/npm/node-linkedin/badge.svg)](https://snyk.io/test/npm/node-linkedin)
 
 Another Linkedin wrapper in Node.js
 
-[![NPM](https://nodei.co/npm/node-linkedin.png)](https://nodei.co/npm/node-linkedin/)
+**FORKED FROM** [![NPM](https://nodei.co/npm/node-linkedin.png)](https://nodei.co/npm/node-linkedin/)
+
+**!!THIS FORK IS IDENTICAL EXCEPT FOR A CHANGE TO BYPASS THE CSRF CHECK FOR DISTRIBUTED SYSTEMS. IT IS NOT CONSIDERED FULLY SECURE IF YOU ARE USING THIS LIBRARY TO AUTHORIZE A USER TO ACCESS PRIVATE INFO AS A 3RD PARTY COULD SPOOF A CALLBACK!!**
 
 ### Why?
 Good question! Because when I started to use LinkedIn API, I found couple of wrappers but they were not compatible with OAuth2.0, their contributors hadn't made any recent commits for several months and I had to utilize the whole wrapper with nice helper functions as well.
@@ -111,9 +113,10 @@ If they accept, be sure to pass the `state` parameter to verify no CSRF
 intrusion. This is compared against the state parameter used in authentication.
 
 ```javascript
+// Setting linkedinCallback as your callback string will bypass CSRF check, setting it false will use it normally
 // Again, `res` is optional, you could pass `code` as the first parameter
 app.get('/oauth/linkedin/callback', function(req, res) {
-    Linkedin.auth.getAccessToken(res, req.query.code, req.query.state, function(err, results) {
+    Linkedin.auth.getAccessToken(res, req.query.code, req.query.state, (linkedinCallback || false), function(err, results) {
         if ( err )
             return console.error(err);
 
